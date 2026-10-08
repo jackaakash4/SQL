@@ -1,0 +1,4 @@
+SELECT address.district, customer.email FROM address
+FULL OUTER JOIN customer
+ON address.address_id = customer.address_id
+WHERE address.district = 'California';
