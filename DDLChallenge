@@ -1,0 +1,14 @@
+--1
+SELECT * FROM students
+WHERE age > 20
+ORDER BY age DESC;
+
+--2
+SELECT s.name, AVG(g.score) AS average
+FROM grades AS g
+JOIN students AS s
+ON s.id = g.student_id
+GROUP BY s.name
+HAVING AVG(g.score) >= 90
+ORDER BY AVG(g.score) DESC
+LIMIT 2;
