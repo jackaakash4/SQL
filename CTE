@@ -1,0 +1,10 @@
+WITH student_avg AS (
+	SELECT name, AVG(score) AS average
+	FROM students
+	LEFT JOIN grades
+	ON students.id = grades.student_id
+	GROUP BY name
+)
+SELECT name, average
+FROM student_avg
+WHERE average > 85;
