@@ -1,0 +1,13 @@
+--CTE Guided Practice
+WITH student_avg AS (
+	SELECT name, AVG(score) AS average
+	FROM students
+	JOIN grades ON id = student_id
+	GROUP BY name
+)
+
+SELECT name, average,
+		RANK() OVER (ORDER BY average DESC) AS rnk,
+		LAG(average) OVER (ORDER BY average DESC) AS next_higher
+		
+FROM student_avg
